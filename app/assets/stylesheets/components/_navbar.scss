@@ -1,0 +1,27 @@
+#navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: $gold;
+  height: 15vh;
+  border-bottom: 2px solid $gold;
+  padding: 8px;
+
+  #navbar-logo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    img {
+      width: 20%;
+      padding-right: 8px;
+      border-right: 2px solid $gold;
+    }
+
+    h1 {
+      font-size: 3em;
+      padding-left: 8px;
+      margin: 0;
+    }
+  }
+}
