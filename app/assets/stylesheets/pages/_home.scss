@@ -1,0 +1,16 @@
+#home-page {
+  background-color: black;
+  min-height: 100vh;
+
+  #home-hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+
+    h1 {
+      color: $gold;
+      margin: 0;
+    }
+  }
+}
