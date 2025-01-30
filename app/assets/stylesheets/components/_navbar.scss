@@ -6,6 +6,7 @@
   height: 15vh;
   border-bottom: 2px solid $gold;
   padding: 8px;
+  background-color: black;
 
   #navbar-logo {
     display: flex;
@@ -22,6 +23,23 @@
       font-size: 3em;
       padding-left: 8px;
       margin: 0;
+    }
+  }
+
+  #navbar-links {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    a {
+      text-decoration: none;
+      color: $gold;
+      margin-left: 24px;
+      font-size: 1.5em;
+
+      &:hover {
+        font-weight: bold;
+      }
     }
   }
 }
