@@ -1,0 +1,50 @@
+name: Test
+
+on: [push]
+
+jobs:
+  test:
+    env:
+      RAILS_ENV: test
+      NODE_ENV: test
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: false
+      - name: Update RubyGems and Bundler
+        run: |
+          gem update --system
+          gem install bundler -v 2.5.23
+          bundle update --bundler
+      - name: Enable Bundler Cache
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+      - name: Set up Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+      - name: Yarn install
+        run: yarn install --frozen-lockfile
+      - name: Prepare DB
+        run: |
+          cp config/database.github.yml config/database.yml
+          bundle exec rails db:test:prepare
+      - name: Run integration tests
+        run: bundle exec rails test:integration
