@@ -27,10 +27,11 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: false
-      - name: Update RubyGems
-        run: gem update --system
-      - name: Set up Bundler
-        run: gem install bundler
+      - name: Update RubyGems and Bundler
+        run: |
+          gem update --system
+          gem install bundler -v 2.5.23
+          bundle update --bundler
       - name: Enable Bundler Cache
         uses: ruby/setup-ruby@v1
         with:
