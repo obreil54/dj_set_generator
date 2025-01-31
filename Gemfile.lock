@@ -205,10 +205,10 @@ GEM
       date
       stringio
     public_suffix (6.0.1)
-    puma (6.5.0)
+    puma (6.6.0)
       nio4r (~> 2.0)
     racc (1.8.1)
-    rack (3.1.8)
+    rack (3.1.9)
     rack-session (2.1.0)
       base64 (>= 0.1.0)
       rack (>= 3.0.0)
@@ -328,7 +328,6 @@ DEPENDENCIES
   jbuilder
   jquery-rails
   launchy
-  nokogiri (~> 1.18)
   pg
   puma (>= 5.0)
   rails (~> 7.1.5)
