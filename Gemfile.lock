@@ -328,6 +328,7 @@ DEPENDENCIES
   jbuilder
   jquery-rails
   launchy
+  nokogiri (~> 1.18)
   pg
   puma (>= 5.0)
   rails (~> 7.1.5)
