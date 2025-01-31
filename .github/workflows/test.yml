@@ -26,15 +26,7 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          bundler-cache: false
-      - name: Update RubyGems and Bundler
-        run: |
-          gem update --system
-          gem install bundler -v 2.5.23
-          bundle update --bundler
-      - name: Enable Bundler Cache
-        uses: ruby/setup-ruby@v1
-        with:
+          ruby-version: 3.1.2
           bundler-cache: true
       - name: Set up Node
         uses: actions/setup-node@v2
