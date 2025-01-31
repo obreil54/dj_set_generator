@@ -23,6 +23,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+      - name: Remove Bundler Cache (Fix Nokogiri Issue)
+        run: rm -rf vendor/bundle
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
