@@ -1,0 +1,74 @@
+#devise-form {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: $gold;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 15%;
+
+    .field {
+      width: 100%;
+      margin: 4px auto;
+      text-align: center;
+    }
+
+    input {
+      background-color: transparent;
+      border: 1px solid $gold;
+      color: $gold;
+      width: 100%;
+
+      &:focus {
+        outline: none;
+        border: 1px solid $gold;
+      }
+    }
+
+    input[type="submit"] {
+      background-color: $gold;
+      color: black;
+      border: none;
+      padding: 8px 16px;
+      margin-top: 8px;
+    }
+
+    input[type="checkbox"] {
+      appearance: none;
+      width: 15px;
+      height: 15px;
+      border: 2px solid $gold;
+      background-color: black;
+      display: inline-block;
+      position: relative;
+      cursor: pointer;
+
+      &:checked {
+        background-color: $gold;
+        border-color: $gold;
+
+        &::after {
+          content: '✔';
+          font-size: 14px;
+          color: black;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          font-weight: bold;
+        }
+      }
+    }
+
+  }
+
+  a {
+    color: $gold;
+  }
+}
