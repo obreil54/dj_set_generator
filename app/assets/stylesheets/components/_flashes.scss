@@ -1,8 +1,20 @@
-.alert {
-  background-color: transparent !important;
-  color :$gold !important;
-  font-size: 1.5em;
-  text-align: center;
-  margin: 16px !important;
-  border: none !important;
+.alert-container  {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 16px;
+
+  .alert {
+      background-color: transparent !important;
+      color :$gold !important;
+      font-size: 1.5em;
+      text-align: center;
+      border: none !important;
+      display: inline-block;
+
+      p {
+        margin-right: 16px;
+      }
+    }
 }

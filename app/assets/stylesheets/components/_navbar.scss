@@ -6,7 +6,10 @@
   height: 15vh;
   border-bottom: 2px solid $gold;
   padding: 8px;
-  background-color: black;
+
+  a {
+    text-decoration: none;
+  }
 
   #navbar-logo {
     display: flex;
@@ -23,6 +26,8 @@
       font-size: 3em;
       padding-left: 8px;
       margin: 0;
+      color: $gold;
+      text-decoration: none;
     }
   }
 
@@ -32,7 +37,6 @@
     align-items: center;
 
     a {
-      text-decoration: none;
       color: $gold;
       margin-left: 24px;
       font-size: 1.5em;
