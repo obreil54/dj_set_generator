@@ -6,7 +6,7 @@
 
     <div class="field">
       <%= f.label :first_name %><br />
-      <%= f.text_field :first_name, autocomplete: "first_name" %>
+      <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
     </div>
 
     <div class="field">
@@ -20,8 +20,13 @@
     </div>
 
     <div class="field">
+      <%= f.label :profile_picture %><br />
+      <%= f.file_field :profile_picture %>
+    </div>
+
+    <div class="field">
       <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <%= f.email_field :email, autocomplete: "email" %>
     </div>
 
     <div class="field">
