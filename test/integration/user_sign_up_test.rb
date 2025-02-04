@@ -96,4 +96,29 @@ class UserSignUpTest < ActionDispatch::IntegrationTest
 
     assert_response :unprocessable_entity
   end
+
+  test "user can sign up with a profile picture" do
+    image = fixture_file_upload(Rails.root.join("test/fixtures/files/profile_pic.png"), "image/png")
+
+    assert_difference "User.count", 1 do
+      post user_registration_path, params: {
+        user: {
+          first_name: "Test",
+          last_name: "User",
+          username: "testuser",
+          email: "test@example.com",
+          password: "password123",
+          password_confirmation: "password123",
+          profile_picture: image
+        }
+      }
+      puts response.body
+    end
+
+    follow_redirect!
+    assert_response :success
+
+    user = User.last
+    assert user.profile_picture.attached?, "Profile picture was not attached"
+  end
 end
