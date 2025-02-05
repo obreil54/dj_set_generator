@@ -22,7 +22,7 @@ class UserSignUpTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "user cannot sign up without email" do
+  test "user cannot sign up with invalid details" do
     post user_registration_path, params: {
       user: {
         first_name: "Test",
@@ -31,36 +31,6 @@ class UserSignUpTest < ActionDispatch::IntegrationTest
         email: "",
         password: "password123",
         password_confirmation: "password123",
-      }
-    }
-
-    assert_response :unprocessable_entity
-  end
-
-  test "user cannot sign up with invalid email" do
-    post user_registration_path, params: {
-      user: {
-        first_name: "Test",
-        last_name: "User",
-        username: "testuser",
-        email: "test@example",
-        password: "password123",
-        password_confirmation: "password123",
-      }
-    }
-
-    assert_response :unprocessable_entity
-  end
-
-  test "user cannot sign up with a short password" do
-    post user_registration_path, params: {
-      user: {
-        first_name: "Test",
-        last_name: "User",
-        username: "testuser",
-        email: "test@example.com",
-        password: "123",
-        password_confirmation: "123",
       }
     }
 
@@ -76,21 +46,6 @@ class UserSignUpTest < ActionDispatch::IntegrationTest
         email: "test@example.com",
         password: "password123",
         password_confirmation: "password",
-      }
-    }
-
-    assert_response :unprocessable_entity
-  end
-
-  test "user cannot sign up with an existing email" do
-    post user_registration_path, params: {
-      user: {
-        first_name: "Ilya",
-        last_name: "Obretetskiy",
-        username: "DJ ILS",
-        email: "obreil54@gmail.com",
-        password: "password123",
-        password_confirmation: "password123",
       }
     }
 

@@ -47,5 +47,7 @@ jobs:
         run: |
           cp config/database.github.yml config/database.yml
           bundle exec rails db:create db:migrate
+      - name: Run unit tests
+        run: bundle exec rails test:models
       - name: Run integration tests
         run: bundle exec rails test:integration
