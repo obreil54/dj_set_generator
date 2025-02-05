@@ -16,24 +16,27 @@ class UserTest < ActiveSupport::TestCase
     assert @user.valid?
   end
 
-  test "invalid without required attributes" do
+  test "invalid without required user attributes" do
     [:first_name, :last_name, :username].each do |attr|
       @user.send("#{attr}=", nil)
       refute @user.valid?, "User should be invalid without #{attr}"
-      assert_not_nil @user.errors[attr], "Expected an error on #{attr}, but got none"
+      assert_includes @user.errors[attr], "can't be blank", "Expected an error on #{attr}, but got none"
       @user.send("#{attr}=", "Test")
     end
+  end
 
+  test "invalid without email" do
     @user.email = nil
     refute @user.valid?, "User should be invalid without email"
-    assert_not_nil @user.errors[:email], "Expected an error on email, but got none"
-    @user.email = "user@example.com"
+    assert_includes @user.errors[:email], "can't be blank", "Expected an error on email, but got none"
+  end
 
+  test "invalid without password" do
     @user.password = nil
     refute @user.valid?, "User should be invalid without password"
-    assert_not_nil @user.errors[:password], "Expected an error on password, but got none"
-    @user.password = "password123"
+    assert_includes @user.errors[:password], "can't be blank", "Expected an error on password, but got none"
   end
+
 
   test "username and email must be unique" do
     assert @user.save, "User should save successfully before uniqueness test"
