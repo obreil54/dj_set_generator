@@ -1,0 +1,43 @@
+#profile-page {
+  min-height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $gold;
+
+  #avatar-container {
+    position: relative;
+    display: inline-block;
+
+    #profile-avatar {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      border:2px solid $gold;
+      object-fit: contain;
+    }
+
+    #edit-avatar {
+      position: absolute;
+      top: 80%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      padding: 8px 12px;
+      border-radius: 5px;
+      font-size: 14px;
+      text-decoration: none;
+      display: none;
+    }
+
+    &:hover #edit-avatar {
+      display: block;
+    }
+  }
+
+
+  h1 {
+    margin-left: 24px;
+  }
+}

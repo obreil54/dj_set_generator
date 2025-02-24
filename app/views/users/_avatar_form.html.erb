@@ -1,0 +1,6 @@
+<turbo-frame id="avatar_form">
+  <%= form_with model: @user, url: update_avatar_user_path(@user), method: :patch, local: false do |f| %>
+    <%= f.file_field :profile_picture, direct_upload: true %>
+    <%= f.submit "Update Avatar" %>
+  <% end %>
+</turbo-frame>

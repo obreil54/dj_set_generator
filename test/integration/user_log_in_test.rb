@@ -12,9 +12,11 @@ class UserLogInTest < ActionDispatch::IntegrationTest
       }
     }
 
+    assert_response :redirect
     follow_redirect!
-
     assert_response :success
+
+    assert_select "h1", "DJ Ils"
   end
 
   test "user cannot log in with invalid credentials" do

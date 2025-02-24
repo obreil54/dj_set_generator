@@ -1,0 +1,11 @@
+<div id="profile-page">
+  <turbo-frame id="avatar">
+    <div id="avatar-container">
+      <%= image_tag(@user.avatar, id: "profile-avatar") %>
+      <%= link_to "Edit Avatar", edit_avatar_user_path(@user), id: "edit-avatar", data: { turbo_frame: "avatar_form" } %>
+    </div>
+  </turbo-frame>
+  <h1><%= @user.username %></h1>
+</div>
+
+<turbo-frame id="avatar_form"></turbo-frame>
