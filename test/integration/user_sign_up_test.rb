@@ -18,8 +18,11 @@ class UserSignUpTest < ActionDispatch::IntegrationTest
       }
     end
 
+    assert_response :redirect
     follow_redirect!
     assert_response :success
+
+    assert_select "h1", "testuser"
   end
 
   test "user cannot sign up with invalid details" do

@@ -8,4 +8,12 @@ class User < ApplicationRecord
 
   validates :username, presence: true, uniqueness: true
   validates :first_name, :last_name, presence: true
+
+  def avatar
+    if profile_picture.attached?
+      Rails.application.routes.url_helpers.rails_blob_path(profile_picture, only_path: true)
+    else
+      ActionController::Base.helpers.asset_path("default_avatar.png")
+    end
+  end
 end

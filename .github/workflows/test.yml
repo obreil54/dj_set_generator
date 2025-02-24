@@ -51,3 +51,5 @@ jobs:
         run: bundle exec rails test:models
       - name: Run integration tests
         run: bundle exec rails test:integration
+      - name: Run system tests
+        run: bundle exec rails test:system

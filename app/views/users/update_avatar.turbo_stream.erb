@@ -1,0 +1,14 @@
+<turbo-stream action="replace" target="avatar">
+  <template>
+    <turbo-frame id="avatar">
+      <div id="avatar-container">
+        <%= image_tag(@user.avatar, id: "profile-avatar") %>
+        <%= link_to "Edit Avatar", edit_avatar_user_path(@user), id: "edit-avatar", data: { turbo_frame: "avatar_form" } %>
+      </div>
+    </turbo-frame>
+  </template>
+</turbo-stream>
+
+<turbo-stream action="update" target="avatar_form">
+  <template></template>
+</turbo-stream>
