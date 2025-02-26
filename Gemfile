@@ -51,6 +51,8 @@ gem "sassc-rails"
 
 gem "bootstrap"
 
+gem "font-awesome-sass"
+
 gem "jquery-rails"
 
 gem "cloudinary"

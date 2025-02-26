@@ -3,7 +3,9 @@
     <turbo-frame id="avatar">
       <div id="avatar-container">
         <%= image_tag(@user.avatar, id: "profile-avatar") %>
-        <%= link_to "Edit Avatar", edit_avatar_user_path(@user), id: "edit-avatar", data: { turbo_frame: "avatar_form" } %>
+        <%= link_to edit_avatar_user_path(@user), id: "edit-avatar", data: { turbo_frame: "avatar_form" } do %>
+          <i class="fa-solid fa-pencil"></i> Edit Avatar
+        <% end %>
       </div>
     </turbo-frame>
   </template>
