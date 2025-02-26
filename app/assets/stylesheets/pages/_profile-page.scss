@@ -5,17 +5,18 @@
   align-items: center;
   color: $gold;
 
+  #profile-avatar, #avatar-preview {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border:2px solid $gold;
+    object-fit: contain;
+  }
+
   #avatar-container {
     position: relative;
     display: inline-block;
 
-    #profile-avatar {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      border:2px solid $gold;
-      object-fit: contain;
-    }
 
     #edit-avatar {
       position: absolute;
@@ -24,9 +25,9 @@
       transform: translate(-50%, -50%);
       background: rgba(0, 0, 0, 0.6);
       color: white;
-      padding: 8px 12px;
+      padding: 8px;
       border-radius: 5px;
-      font-size: 14px;
+      font-size: 12px;
       text-decoration: none;
       display: none;
     }
@@ -39,5 +40,57 @@
 
   h1 {
     margin-left: 24px;
+  }
+
+  #avatar_form {
+    position: fixed;
+    margin: auto;
+    background: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    text-align: center;
+
+    img {
+      margin: 16px 0;
+    }
+
+    a {
+      color: $gold;
+      text-decoration: none;
+      font-size: 1.25em;
+
+      &:hover {
+        color: darken($gold, 10%);
+      }
+    }
+
+    input[type="file"]::file-selector-button, input[type="submit"] {
+      background-color: $gold;
+      color: black;
+      border: none;
+      padding: 8px 12px;
+      cursor: pointer;
+      border-radius: 5px;
+
+      &:hover {
+        background-color: darken($gold, 10%);
+      }
+    }
+
+    input[type="file"] {
+      color: transparent;
+      width: fit-content;
+    }
+
+    .field_with_errors {
+      display: contents;
+    }
+
+    .error-messages {
+      margin-bottom: 16px;
+    }
   }
 }

@@ -13,19 +13,26 @@ class UsersController < ApplicationController
 
   def update_avatar
     @user = current_user
+
+    if params[:user].blank? || params[:user][:profile_picture].blank?
+      @user.errors.add(:profile_picture, "Please select an image before updating")
+      return render turbo_stream: turbo_stream.replace("avatar_form", partial: "users/avatar_form", locals: { user: @user }), status: :unprocessable_entity
+    end
+
     if @user.update(user_params)
       respond_to do |format|
         format.turbo_stream
-        format.html { redirect_to user_path(@user), notice: "Avatar updated successfully" }
       end
     else
-      render partial: "users/avatar_form", status: :unprocessable_entity
+      respond_to do |format|
+        render turbo_stream: turbo_stream.replace("avatar_form", partial: "users/avatar_form", locals: { user: @user }), status: :unprocessable_entity
+      end
     end
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:profile_picture)
+    params.fetch(:user, {}).permit(:profile_picture)
   end
 end
