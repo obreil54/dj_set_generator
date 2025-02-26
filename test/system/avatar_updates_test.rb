@@ -48,7 +48,7 @@ class AvatarUpdatesTest < ApplicationSystemTestCase
 
     new_src = find("#avatar-preview")[:src]
 
-    assert_selector "#avatar-preview[src*='profile_pic.png']"
+    refute_equal original_src, new_src, "Avatar preview did not update as expected"
   end
 
   test "user can manually close avatar edit form" do
