@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'users/show'
+  get "users/show"
   devise_for :users
 
   resources :users, only: [:show] do
@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     end
   end
 
-  get "up" => "rails/health#show", as: :rails_health_check
+  get "up" => "rails/health#show", :as => :rails_health_check
 
   root "pages#home"
 

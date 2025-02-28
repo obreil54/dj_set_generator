@@ -8,7 +8,7 @@ class UserLogInTest < ActionDispatch::IntegrationTest
     post new_user_session_path, params: {
       user: {
         email: "obreil54@gmail.com",
-        password: "password123",
+        password: "password123"
       }
     }
 
@@ -23,7 +23,7 @@ class UserLogInTest < ActionDispatch::IntegrationTest
     post new_user_session_path, params: {
       user: {
         email: "obreil54@gmail.com",
-        password: "wrongpassword",
+        password: "wrongpassword"
       }
     }
 

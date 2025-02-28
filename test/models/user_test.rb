@@ -37,7 +37,6 @@ class UserTest < ActiveSupport::TestCase
     assert_includes user.errors[:password], "can't be blank", "Expected an error on password, but got none"
   end
 
-
   test "username and email must be unique" do
     user = build_user
     assert user.save, "User should save successfully before uniqueness test"
@@ -72,7 +71,7 @@ class UserTest < ActiveSupport::TestCase
     user.save!
 
     assert user.avatar.present?, "Expected avatar to return an image"
-    assert_match /rails\/active_storage\/blobs/, user.avatar, "Expected avatar to return an uploaded profile picture URL"
+    assert_match(/rails\/active_storage\/blobs/, user.avatar, "Expected avatar to return an uploaded profile picture URL")
   end
 
   test "avatar should return default image if no profile picture" do
