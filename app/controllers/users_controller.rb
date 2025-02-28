@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   def edit_avatar
     @user = current_user
-    render partial: "users/avatar_form", locals: { user: @user }
+    render partial: "users/avatar_form", locals: {user: @user}
   end
 
   def update_avatar
@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 
     if params[:user].blank? || params[:user][:profile_picture].blank?
       @user.errors.add(:profile_picture, "Please select an image before updating")
-      return render turbo_stream: turbo_stream.replace("avatar_form", partial: "users/avatar_form", locals: { user: @user }), status: :unprocessable_entity
+      return render turbo_stream: turbo_stream.replace("avatar_form", partial: "users/avatar_form", locals: {user: @user}), status: :unprocessable_entity
     end
 
     if @user.update(user_params)
@@ -25,7 +25,7 @@ class UsersController < ApplicationController
       end
     else
       respond_to do |format|
-        render turbo_stream: turbo_stream.replace("avatar_form", partial: "users/avatar_form", locals: { user: @user }), status: :unprocessable_entity
+        render turbo_stream: turbo_stream.replace("avatar_form", partial: "users/avatar_form", locals: {user: @user}), status: :unprocessable_entity
       end
     end
   end

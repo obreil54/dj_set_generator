@@ -2,7 +2,7 @@ require "application_system_test_case"
 
 class AvatarUpdatesTest < ApplicationSystemTestCase
   setup do
-   login_user
+    login_user
   end
 
   test "user can update their avatar via turbo frame" do

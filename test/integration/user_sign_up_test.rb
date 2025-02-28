@@ -13,7 +13,7 @@ class UserSignUpTest < ActionDispatch::IntegrationTest
           username: "testuser",
           email: "test@example.com",
           password: "password123",
-          password_confirmation: "password123",
+          password_confirmation: "password123"
         }
       }
     end
@@ -33,7 +33,7 @@ class UserSignUpTest < ActionDispatch::IntegrationTest
         username: "testuser",
         email: "",
         password: "password123",
-        password_confirmation: "password123",
+        password_confirmation: "password123"
       }
     }
 
@@ -48,7 +48,7 @@ class UserSignUpTest < ActionDispatch::IntegrationTest
         username: "testuser",
         email: "test@example.com",
         password: "password123",
-        password_confirmation: "password",
+        password_confirmation: "password"
       }
     }
 
