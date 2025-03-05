@@ -50,7 +50,7 @@ jobs:
       - name: Run model tests
         run: bundle exec rails test:models
       - name: Run service tests
-        run: bundle exec rails test:services
+        run: bundle exec rails test test/services
       - name: Run integration tests
         run: bundle exec rails test:integration
       - name: Run controller tests
