@@ -10,3 +10,10 @@ ilya:
   username: "DJ Ils"
   email: "obreil54@gmail.com"
   encrypted_password: <%= User.new.send(:password_digest, 'password123') %>
+
+premier:
+  first_name: "Christopher"
+  last_name: "Martin"
+  username: "DJ Premier"
+  email: "premier@gangstarr.com"
+  encrypted_password: <%= User.new.send(:password_digest, 'GangStarr') %>
