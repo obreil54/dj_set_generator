@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  artist: MyString
+  genre: MyString
+  spotify_link: MyString
+  release_year: 1
+  bpm: 1.5
+  key: MyString
+  open_key: MyString
+  danceability: 1.5
+
+two:
+  name: MyString
+  artist: MyString
+  genre: MyString
+  spotify_link: MyString
+  release_year: 1
+  bpm: 1.5
+  key: MyString
+  open_key: MyString
+  danceability: 1.5
