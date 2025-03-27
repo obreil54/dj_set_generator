@@ -5,6 +5,7 @@
 # below each fixture, per the syntax in the comments below
 #
 ilya:
+  id: 1
   first_name: "Ilya"
   last_name: "Obretetskiy"
   username: "DJ Ils"
@@ -12,6 +13,7 @@ ilya:
   encrypted_password: <%= User.new.send(:password_digest, 'password123') %>
 
 premier:
+  id: 2
   first_name: "Christopher"
   last_name: "Martin"
   username: "DJ Premier"

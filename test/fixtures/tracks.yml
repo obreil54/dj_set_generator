@@ -1,23 +1,37 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  artist: MyString
-  genre: MyString
-  spotify_link: MyString
-  release_year: 1
-  bpm: 1.5
-  key: MyString
-  open_key: MyString
-  danceability: 1.5
+mandingo:
+  id: 1
+  name: "Mandingo"
+  artist: "Wu-Tang Clan"
+  genre: "Hip-Hop"
+  spotify_link: "https://open.spotify.com/track/1"
+  release_year: 2025
+  bpm: 85
+  key: "C"
+  open_key: "C#"
+  danceability: 0.5
 
-two:
-  name: MyString
-  artist: MyString
-  genre: MyString
-  spotify_link: MyString
-  release_year: 1
-  bpm: 1.5
-  key: MyString
-  open_key: MyString
-  danceability: 1.5
+dr_birds:
+  id: 2
+  name: "DR BIRDS"
+  artist: "Griselda"
+  genre: "Hip-Hop"
+  spotify_link: "https://open.spotify.com/track/2"
+  release_year: 2019
+  bpm: 90
+  key: "D"
+  open_key: "D#"
+  danceability: 0.6
+
+jpegultra:
+  id: 3
+  name: "JPEGULTRA!"
+  artist: "JPEGMAFIA"
+  genre: "Hip-Hop"
+  spotify_link: "https://open.spotify.com/track/3"
+  release_year: 2025
+  bpm: 95
+  key: "E"
+  open_key: "F"
+  danceability: 0.7
