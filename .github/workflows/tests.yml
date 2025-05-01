@@ -54,6 +54,8 @@ jobs:
           done
           pg_isready -h localhost -p 5432
           bundle exec rails db:create db:migrate
+      - name: Boot Rails to confirm
+        run: bundle exec rails runner 'puts "Rails is up and running!"'
       - name: Run model tests
         run: bundle exec rails test:models
       - name: Run service tests
