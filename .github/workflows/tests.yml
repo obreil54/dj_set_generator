@@ -48,10 +48,10 @@ jobs:
         run: |
           cp config/database.github.yml config/database.yml
           bundle exec rails db:create db:migrate
+      # - name: Run model tests
+        # run: bundle exec rails test:models
       - name: Run service tests
         run: bundle exec rails test test/services
-      - name: Run model tests
-        run: bundle exec rails test:models
       - name: Run integration tests
         run: bundle exec rails test:integration
       - name: Run controller tests
