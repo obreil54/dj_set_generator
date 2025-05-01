@@ -4,6 +4,7 @@ on: [push]
 
 jobs:
   test:
+    timeout-minutes: 15
     env:
       RAILS_ENV: test
       NODE_ENV: test
@@ -26,7 +27,7 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: "3.1.2"
+          ruby-version: "3.4.3"
           rubygems: "3.6.3"
           bundler-cache: true
       - name: Set up Node
@@ -46,7 +47,15 @@ jobs:
       - name: Prepare DB
         run: |
           cp config/database.github.yml config/database.yml
+          for i in {1..30}; do
+            pg_isready -h localhost -p 5432 && break
+            echo "Waiting for Postgres... ($i)"
+            sleep 1
+          done
+          pg_isready -h localhost -p 5432
           bundle exec rails db:create db:migrate
+      - name: Boot Rails to confirm
+        run: bundle exec rails runner 'puts "Rails is up and running!"'
       - name: Run model tests
         run: bundle exec rails test:models
       - name: Run service tests
