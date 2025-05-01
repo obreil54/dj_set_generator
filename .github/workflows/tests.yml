@@ -4,6 +4,7 @@ on: [push]
 
 jobs:
   test:
+    timeout-minutes: 15
     env:
       RAILS_ENV: test
       NODE_ENV: test
@@ -46,6 +47,12 @@ jobs:
       - name: Prepare DB
         run: |
           cp config/database.github.yml config/database.yml
+          for i in {1..30}; do
+            pg_isready -h localhost -p 5432 && break
+            echo "Waiting for Postgres... ($i)"
+            sleep 1
+          done
+          pg_isready -h localhost -p 5432
           bundle exec rails db:create db:migrate
       - name: Run model tests
         run: bundle exec rails test:models
